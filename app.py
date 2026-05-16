@@ -4,7 +4,7 @@ import plotly.express as px
 import requests
 import io
 
-FILE_ID = "18i4_XRz2zB_W4ERmJL8Wi6-ZXFiWGsb7"
+FILE_ID = st.secrets["FILE_ID"]
 HOJA    = "Invest Summary-CONSOLIDATED"
 
 st.set_page_config(page_title="Central Link – Investment Summary", layout="wide")
