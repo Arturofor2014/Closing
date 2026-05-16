@@ -7,7 +7,7 @@ import io
 FILE_ID = st.secrets["FILE_ID"]
 HOJA    = "Invest Summary-CONSOLIDATED"
 
-st.set_page_config(page_title="Central Link – Investment Summary", layout="wide")
+st.set_page_config(page_title="Closing Sample – Investment Summary", layout="wide")
 
 # ── ESTILOS ────────────────────────────────────────────────────────────────────
 st.markdown("""
