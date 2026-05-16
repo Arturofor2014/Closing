@@ -25,18 +25,20 @@ section[data-testid="stSidebar"] { display: none; }
 .kpi-card {
     background: #ffffff;
     border-radius: 10px;
-    padding: 28px 10px;
+    padding: 0 10px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.10);
     text-align: center;
     margin-bottom: 12px;
-    min-height: 130px;
+    height: 140px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
 }
-.kpi-label  { font-size: 12px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 1px; }
-.kpi-pc     { font-size: 22px; font-weight: 900; color: #0052FF; margin: 4px 0 2px; }
-.kpi-bp     { font-size: 13px; color: #888; }
+.kpi-label  { font-size: 11px; font-weight: 700; color: #666; text-transform: uppercase; letter-spacing: 0.5px; line-height: 1.3; word-break: break-word; }
+.kpi-pc     { font-size: 20px; font-weight: 900; color: #0052FF; margin: 6px 0 4px; }
+.kpi-bp     { font-size: 12px; color: #888; }
 .section-title {
     font-size: 20px; font-weight: 900; color: #0052FF;
     letter-spacing: 1.5px; text-transform: uppercase;
