@@ -211,7 +211,12 @@ with col_right:
     fig = px.pie(df_pie, names="Categoría", values="Valor",
                  color_discrete_sequence=["#0052FF","#4C9BE8","#2ECC71","#E8C34C"])
     fig.update_traces(textinfo="label+percent", textposition="outside", textfont=dict(size=13))
-    fig.update_layout(height=340, showlegend=False, margin=dict(t=20,b=20,l=20,r=20))
+    fig.update_layout(
+        height=340, showlegend=False, margin=dict(t=20,b=20,l=20,r=20),
+        paper_bgcolor="#FFFFFF", plot_bgcolor="#FFFFFF",
+        font=dict(color="#111827"),
+        template="plotly_white",
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 # ── SECCIÓN 3: OPEX & REVENUE ──────────────────────────────────────────────────
