@@ -22,6 +22,17 @@ section[data-testid="stSidebar"] { display: none; }
 @media (max-width: 768px) {
     .main .block-container { min-width: 1100px; overflow-x: auto; }
 }
+/* Forzar light mode en móvil */
+@media (prefers-color-scheme: dark) {
+    html, body,
+    [data-testid="stAppViewContainer"],
+    [data-testid="stHeader"],
+    [data-testid="stMainBlockContainer"],
+    section, div {
+        background-color: #FFFFFF !important;
+        color: #111827 !important;
+    }
+}
 .kpi-card {
     background: #ffffff;
     border-radius: 10px;
@@ -140,20 +151,34 @@ def kpi_card(label, pc, bp, tipo="num"):
         <div class="kpi-bp">BP: {fmt(bp, tipo)}</div>
     </div>"""
 
-kpis = [
+row1 = [
     ("Total Equity",    data["total_equity_pc"],  data["total_equity_bp"],  "num"),
     ("Total CAPEX",     data["total_capex_pc"],   data["total_capex_bp"],   "num"),
     ("Total Revenue",   data["total_revenue_pc"], data["total_revenue_bp"], "num"),
+]
+row2 = [
     ("Net Profit",      data["net_profit_pc"],    data["net_profit_bp"],    "num"),
     ("IRR",             data["irr_pc"],            data["irr_bp"],           "pct"),
     ("Equity Multiple", data["eq_mult_pc"],        data["eq_mult_bp"],       "mult"),
-    ("NPV",             data["npv_pc"],             data["npv_bp"],           "num"),
-    ("ROI",             data["roi_pc"],             data["roi_bp"],           "pct"),
+]
+row3 = [
+    ("NPV",             data["npv_pc"],            data["npv_bp"],           "num"),
+    ("ROI",             data["roi_pc"],            data["roi_bp"],           "pct"),
 ]
 
-cols = st.columns(8)
-for i, (label, pc, bp, tipo) in enumerate(kpis):
-    with cols[i % 8]:
+cols1 = st.columns(3)
+for i, (label, pc, bp, tipo) in enumerate(row1):
+    with cols1[i]:
+        st.markdown(kpi_card(label, pc, bp, tipo), unsafe_allow_html=True)
+
+cols2 = st.columns(3)
+for i, (label, pc, bp, tipo) in enumerate(row2):
+    with cols2[i]:
+        st.markdown(kpi_card(label, pc, bp, tipo), unsafe_allow_html=True)
+
+cols3 = st.columns(3)
+for i, (label, pc, bp, tipo) in enumerate(row3):
+    with cols3[i]:
         st.markdown(kpi_card(label, pc, bp, tipo), unsafe_allow_html=True)
 
 # ── SECCIÓN 2: CAPEX ───────────────────────────────────────────────────────────
